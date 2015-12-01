@@ -1,0 +1,17 @@
+{
+  "name": "avangu",
+  "version": "1.0.0",
+  "description": ".: HTML5 audio/video player for angularJS :.",
+  "main": "gruntfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "stan nesi",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.13.3",
+    "morgan": "^1.6.1",
+    "path": "^0.12.7"
+  }
+}
