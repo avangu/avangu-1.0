@@ -1,2 +1,2 @@
 # avangu
-.: avangu-player audio/video angular :.
+.: HTML5 audio/video player for angularJS :.
