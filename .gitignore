@@ -1,0 +1,17 @@
+.DS_Store
+bin/*
+node_modules/*
+obj/*
+*.csproj
+*.csproj.user
+*.sln
+*.suo
+.idea/*
+node_modules
+public
+.tmp
+.sass-cache
+.idea
+client/bower_components
+dist
+/server/config/local.env.js
