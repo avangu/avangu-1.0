@@ -22,7 +22,6 @@ app.use(express.static(path.join(__dirname, '../client')));
 // log every request to the console
 app.use(morgan('dev'));
 
-
 // ROUTES *************************
 
 // get application

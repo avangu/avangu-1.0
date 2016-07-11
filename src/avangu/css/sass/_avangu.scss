@@ -1,0 +1,55 @@
+// load libs
+@import 'libs/vars';
+@import 'libs/functions';
+@import 'libs/mixins';
+
+
+// load icons 
+@import 'libs/icons';
+
+avangu, [avangu] {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-color: _palette(bg);
+    margin: 0;
+    padding: 0;
+
+    display: block;
+    flex-direction: column;
+    
+    -webkit-touch-callout: none;
+    @include prefix(user-select, none);
+    
+    &.background {
+        position: absolute;
+
+        // @include opacity(1);
+        // @include transition(opacity 125ms ease-out);
+
+        line-height: normal;
+        border-collapse: separate;
+
+        touch-action: none;
+        -ms-touch-action: none;
+        
+        z-index: -100
+    }
+    
+    &.fullscreen {
+        position: fixed;
+        left: 0;
+        top: 0;
+    }
+    
+    button {
+        cursor: pointer;
+    }
+
+    
+    // import avangu player
+    @import 'avangu-player';
+
+    // import avangu plugins
+    @import 'avangu-plugins';
+}

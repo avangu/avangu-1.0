@@ -1,0 +1,112 @@
+body {
+    font-size: 14px;
+    font-family: "Helvetica Neue", "Arial", "sans-serif";
+
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+button {
+    width: 100px;
+    color: #ffffff;
+    background: orange;
+    border: 1px solid darkred;
+    margin-right: 10px;
+
+    /* box-shadow: 1px 1px 3px #333; */
+}
+
+table {
+    width: 100%;
+}
+table td {
+    padding: 5px;
+}
+
+img {
+    width: 100%;
+    max-width: 100%;
+    border: none;
+}
+
+/* Header */
+#header {
+    display: flex;
+    background: orange;
+    padding: 30px 20px;
+}
+
+#header .logo h1 {
+    margin: 3px 0;
+}
+
+#header .logo .subtitle {
+    font-size: 0.8rem;
+}
+
+#header .actions {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+#header .actions button {
+    background-color: #F14228;
+    cursor: pointer;
+    border: none;
+}
+
+#content {
+    display: flex;
+    margin-top: 20px;
+}
+/* Left Section */
+
+.left-section {
+    flex: 1;
+    margin-right: 20px;
+}
+.left-section .header {
+    display: flex;
+    height: 30px;
+}
+
+.left-section .header button {
+    height: 25px;
+}
+.left-section .header > .actions {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.left-section .header > .actions button {
+    background-color: #f0742c;
+    cursor: pointer;
+    border: none;
+}
+
+table th {
+    background: #ccc;
+    padding: 5px;
+}
+.totals td {
+    border-top: 3px solid #ccc;
+}
+
+.legend {
+    width: 30px;
+    height: 16px;
+}
+
+/* Right Section */
+.right-section {
+    width: 300px;
+    background: #ccc;
+}
+.right-section .chart {
+    height: 300px;
+}
+
+.right-section .help-label {
+    padding: 10px;
+}
