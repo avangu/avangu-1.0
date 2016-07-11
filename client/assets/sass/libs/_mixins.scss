@@ -1,0 +1,404 @@
+//  _mixin.scss
+
+/* @mixins */
+
+
+// border radius mixin
+@mixin border-radius ($radius) {
+    -webkit-border-radius: $radius;
+       -moz-border-radius: $radius;
+        -ms-border-radius: $radius;
+            border-radius: $radius;
+}
+
+// glass effect mixin
+@mixin glass-eff($bgA: .6, $borA: 0.65) {
+    background-color: rgba(255, 255, 255, $bgA);
+    border: 1px solid rgba(255, 255, 255, $borA);
+}
+
+// box shadow
+@mixin box-shadow($top, $left, $blur, $color, $inset: false) {
+  @if $inset {
+    -webkit-box-shadow:inset $top $left $blur $color;
+    -moz-box-shadow:inset $top $left $blur $color;
+    box-shadow:inset $top $left $blur $color;
+  } @else {
+    -webkit-box-shadow: $top $left $blur $color;
+    -moz-box-shadow: $top $left $blur $color;
+    box-shadow: $top $left $blur $color;
+  }
+}
+
+// padding mixin
+@mixin pad ($pads...) {
+    padding: $pads;
+}
+
+// margin mixin
+@mixin mar ($mars...) {
+    margin: $mars;
+}
+
+// size
+@mixin size($width, $height: $width) {
+      width: $width;
+      height: $height;
+}
+
+// font size mixin
+@mixin font-size($size) {
+    font-size: $size;
+    font-size: calculateRem($size);
+}
+
+// calculate px --> rem
+@function calculateRem($size) {
+    $remSize: $size / 16px;
+    @return $remSize * 1rem;
+}
+
+// prefix --> usage: @include prefix(transform, rotate(42deg), webkit ms);
+@mixin prefix($property, $value, $vendors: webkit moz ms o) {
+      @if $vendors {
+        @each $vendor in $vendors {
+          #{"-" + $vendor + "-" + $property}: #{$value};
+        }
+      }
+      #{$property}: #{$value};
+}
+
+/// Wraps @content in vendorized keyframe blocks. animation mixin
+/// @param {string} $name Name.
+@mixin keyframes($animation-name) {
+    @-webkit-keyframes #{$animation-name} {
+        @content;
+    }
+    @-moz-keyframes #{$animation-name} {
+        @content;
+    }  
+    @-ms-keyframes #{$animation-name} {
+        @content;
+    }
+    @-o-keyframes #{$animation-name} {
+        @content;
+    }  
+    @keyframes #{$animation-name} {
+        @content;
+    }
+}
+
+@mixin animation($str) {
+    -webkit-animation: #{$str};
+       -moz-animation: #{$str};
+        -ms-animation: #{$str};
+         -o-animation: #{$str};
+            animation: #{$str};      
+}
+
+// transition mixin
+@mixin transition($args...) {
+    -webkit-transition: $args;
+    -moz-transition: $args;
+    -ms-transition: $args;
+    -o-transition: $args;
+       transition: $args;
+}
+
+// transform mixin
+@mixin transform($args...) {
+    -webkit-transform: $args;
+    -moz-transform: $args;
+    -ms-transform: $args;
+    -o-transform: $args;
+       transform: $args;
+}
+
+// opacity mixin
+@mixin opacity($opacity) {
+    opacity: $opacity;
+    $opacity-ie: $opacity * 100;
+    filter: alpha(opacity=$opacity-ie); //IE8
+}
+
+// clearfix mixin ---> usage: @extend %clearfix;
+%clearfix {
+    *zoom: 1;
+    &:before, &:after {
+        content: " ";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+// visually hide an element ---> usage: @extend %visuallyhidden;
+%visually-hidden {
+      margin: -1px;
+    padding: 0;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    clip: rect(0, 0, 0, 0);
+    position: absolute;
+}
+
+/* 
+* @include triangle within a pseudo element and add positioning properties (ie. top, left)
+* $direction: up, down, left, right
+*/
+@mixin triangle($direction, $size: 6px, $color: #222){
+    content: '';
+    display: block;
+    position: absolute;
+    height: 0; width: 0;
+    
+    @if ($direction == 'up') {
+        border-bottom: $size solid $color;
+        border-left: 1/2*$size solid transparent;
+        border-right: 1/2*$size solid transparent;
+    }
+    
+    @else if ($direction == 'down'){
+        border-top: $size solid $color;
+        border-left: 1/2*$size solid transparent;
+        border-right: 1/2*$size solid transparent;
+    }
+    @else if ($direction == 'left'){
+        border-top: 1/2*$size solid transparent;
+        border-bottom: 1/2*$size solid transparent;
+        border-right: $size solid $color;
+    }
+
+    @else if ($direction == 'right'){
+        border-top: 1/2*$size solid transparent;
+        border-bottom: 1/2*$size solid transparent;
+        border-left: $size solid $color;
+    }
+}
+
+// vertically centering
+@mixin ghost-vertical-align(){
+  &:before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+    width: .1px;
+  }
+}
+
+// center block
+@mixin center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// truncate text
+@mixin text-truncate($overflow: ellipsis){
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: $overflow; // values are: clip, ellipsis, or a string
+}
+
+
+// tooltip
+@mixin tooltip($content: attr(data-tooltip), $direction: top) {
+  position: relative;
+  &:before, &:after {
+    display: none;
+    z-index: 98;
+  }
+  &:hover {
+    &:after { // for text bubble
+      content: $content;
+      display: block;
+      position: absolute;
+      height: 12px; // (makes total height including padding 22px)
+      padding: 6px;
+      font-size: 12px;
+      white-space: nowrap;
+      color: #fff;
+      @include text-shadow(1px 1px #000);
+      background-color: #222;
+    }
+    @if ($direction == 'top'){
+      &:before {
+        @include triangle(down, 6px, #222);
+        top: -6px; margin-top: 0;
+        left: 47%;
+      }
+      &:after {
+        top: -28px;
+        left: 47%; margin-left: -20px;
+      }
+    }
+    @else if ($direction == 'bottom'){
+      &:before {
+        @include triangle(up, 6px, #222);
+        top: auto; margin-top: 0;
+        bottom: -6px;
+        left: 47%;
+      }
+      &:after {
+        bottom: -28px;
+        left: 47%; margin-left: -20px;
+      }
+    }
+  }
+}
+
+// box-sizing
+@mixin box-sizing($box-model) {
+  -webkit-box-sizing: $box-model; // Safari <= 5
+     -moz-box-sizing: $box-model; // Firefox <= 19
+          box-sizing: $box-model;
+}
+
+/// Sets the global box model.
+/// @param {string} $model Model (default is content).
+@mixin boxModel($model: 'content') {
+
+    $x: $model + '-box';
+
+    *, *:before, *:after {
+        -moz-box-sizing: #{$x};
+        -webkit-box-sizing: #{$x};
+        box-sizing: #{$x};
+    }
+
+}
+
+@mixin border-box {
+    @include box-sizing(border-box);
+}
+
+// absolute positioning
+@mixin absolute-position ($top: auto, $right: auto, $bottom: auto, $left: auto) {
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+  position: absolute;
+}
+
+/// Makes an element's :before pseudoelement a FontAwesome icon.
+/// @param {string} $content Optional content value to use.
+@mixin icon($content: false) {
+
+	text-decoration: none;
+
+	&:before {
+
+		@if $content {
+			content: $content;
+		}
+
+		-moz-osx-font-smoothing: grayscale;
+		-webkit-font-smoothing: antialiased;
+		font-family: FontAwesome;
+		font-style: normal;
+		font-weight: normal;
+		text-transform: none !important;
+
+	}
+
+}
+
+
+/// Wraps @content in a @media block using a given breakpoint.
+/// @param {string} $breakpoint Breakpoint.
+/// @param {map} $queries Additional queries.
+@mixin breakpoint($breakpoint: null, $queries: null) {
+
+    $query: 'screen';
+
+    // Breakpoint.
+        @if $breakpoint and map-has-key($breakpoints, $breakpoint) {
+            $query: $query + ' and ' + map-get($breakpoints, $breakpoint);
+        }
+
+    // Queries.
+        @if $queries {
+            @each $k, $v in $queries {
+                $query: $query + ' and (' + $k + ':' + $v + ')';
+            }
+        }
+
+    @media #{$query} {
+        @content;
+    }
+
+}
+
+/// Wraps @content in a @media block targeting a specific orientation.
+/// @param {string} $orientation Orientation.
+@mixin orientation($orientation) {
+    @media screen and (orientation: #{$orientation}) {
+        @content;
+    }
+}
+
+
+// break points mixin
+@mixin bp-large {
+    @media only screen and (max-width: 60em) {
+      @content;
+    }
+}
+
+@mixin bp-medium {
+    @media only screen and (max-width: 40em) {
+        @content;
+    }
+}
+
+@mixin bp-small {
+    @media only screen and (max-width: 30em) {
+        @content;
+    }
+}
+
+@mixin respond-to($media) {
+    @if $media == smartphone {
+        @media (max-width: $smartphone) {
+            @content;
+        }
+    }
+    @else if $media == tablet {
+        @media (min-width: $tabletPortrait) and (max-width: $tabletLandscape) {
+            @content;
+        }
+  }
+    @else if $media == smallScreen {
+        @media (max-width: $desktop) {
+            @content;
+        }
+    }
+    @else if $media == desktop {
+        @media (min-width: $desktop) {
+            @content;
+        }
+    }
+}
+
+// background image mixin
+$image-path: '../../img' !default;
+$fallback-extension: 'png' !default;
+$retina-suffix: '@2x';
+@mixin background-image($name, $size:false){
+    background-image: url(#{$image-path}/#{$name}.svg);
+    @if($size){
+        background-size: $size;
+    }
+    .no-svg &{
+        background-image: url(#{$image-path}/#{$name}.#{$fallback-extension});
+
+        @media only screen and (-moz-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
+          background-image: url(#{$image-path}/#{$name}#{$retina-suffix}.#{$fallback-extension});
+        }
+    }
+}

@@ -1,0 +1,231 @@
+// _fly-nav-menu.scss
+
+// load libs
+@import '../../libs/vars';
+@import '../../libs/functions';
+@import '../../libs/mixins';
+
+
+/* Fly Nav Menu */
+
+// rotate deg
+$r: 28deg;
+
+// number of menus items
+$n: 5;
+
+.fly-nav-menu {    
+    cursor: pointer;
+    position: fixed;
+    z-index: 950;
+    left: 50px;
+    bottom: 120px;
+    
+    .fly-nav-overlay {
+        position: absolute;
+        display: block; 
+        width: 350px;
+        height: 350px;
+        bottom: -480px;
+        left: -400px;
+        outline: none;
+        @include border-radius(30%);
+        @include glass-eff(0.6, .65);
+
+        @include transition(all .4s ease);
+        //@include animation(swing .35s ease-out 1 backwards);
+        
+        &.init  {       
+            display: none;
+        }
+        
+        &.expand {
+            bottom: -140px;
+            left: -130px;
+            @include opacity(1);
+        }
+        
+        &.contract {
+            bottom: -480px;
+            left: -400px;
+            @include opacity(0); 
+        }    
+    }
+    
+    // fly-nav-menu button
+    .fly-nav-menu-btn {
+        position: absolute;
+        display: block;
+        overflow: hidden;
+        text-indent: -99999px;
+        outline: none;
+        @include border-radius(50%);
+        
+        background-color: rgba(0, 0, 0, 0.8);
+        border: 1px solid rgba(0, 0, 0, 0.7);
+        
+        box-shadow: rgba(0,0,0,.3) 0 3px 8px 0;
+        @include transition(all .4s ease);  
+        @include animation(swing .35s ease-out 1 backwards);
+
+                        
+        &.rotate {
+            @include transform(rotate(-135deg));
+        }
+
+        span {
+          display: block;
+          width:  70px;
+          height: 70px;
+          background: url("../images/cross.svg") no-repeat center center;
+          background-size: 20px 20px;
+          @include transition (all .4s ease);
+        }
+        
+        &:hover {
+            border: 2px solid rgba(255, 255, 255, 1);
+        }
+    }
+    
+    .fly-nav-menu-items {
+        position: relative;
+        margin: 0 0 1px 6px;
+        line-height: 0;
+        top: -190px;
+        
+        li {
+            position: absolute;
+            display: block;
+            height: 170px;
+            @include prefix(transform-origin, (25px / 2) bottom);
+            
+            @for $i from 1 through $n {
+                &:nth-of-type(#{$i}) { @include transform(rotate($r *($i - 1))); }
+                &:nth-of-type(#{$i}) a { animation-delay: (.20s - .04s * ($i - 1)); }
+            }
+   
+            a {
+                position: absolute;
+                border: none;
+                /* overflow: hidden; */
+                /* text-indent: -99999px; */
+                outline: none;
+
+                @include border-radius(50%);
+                @include glass-eff(0, 0);
+
+                top: 150px;
+                @include animation(contract .35s ease-out 1 backwards);
+                @include opacity(0);
+                
+                span {
+                    color: rgba(0, 0, 0, .8);
+                    
+                    &:hover {
+                        color: #fff;
+                    }
+                }
+            }
+        }
+        
+        &.expand {
+            li {
+                @for $i from 1 through $n {
+                    &:nth-of-type(#{$i}) a span {
+                        @include transform(rotate(-($r *($i - 1))));
+                        @include animation(spin-#{$i}-expand .4s ease-out 1 backwards); 
+                    }
+                }
+                a {
+                    top: 10px;
+                    @include animation(expand .35s ease-out 1 backwards);
+                    @include opacity(1);
+                }
+            }
+        }
+        
+        &.fade {
+            li {
+                @for $i from 1 through $n {
+                    &:nth-of-type(#{$i}) a span {
+                        @include transform(rotate(-($r *($i - 1))));
+                        @include animation(spin-#{$i}-expand .4s ease-out 1 backwards); 
+                    }
+                }
+                a {
+                    top: 10px;
+
+                    &.clicked {
+                        @include animation(clicked .5s ease-out 1 forwards);
+                    }
+                 
+                    &:not(.clicked) {
+                        @include animation(fade .9s ease-out 1 backwards);
+
+                         span {
+                            @include opacity(0.1);
+                            @include transition(opacity .5s ease)
+                         }
+                    }
+                }
+            }
+        }
+        // triggers
+        &.init  {
+            li {
+                display: none;
+            }
+        }
+    }
+}
+
+  // A small trick
+@include keyframes(clicked) {
+    0%   { transform: scale(1); @include opacity(1); top: 10px; }
+    90%  {                                  top: 10px; }
+    99%  { transform: scale(6); @include opacity(0); top: 150px; }
+    100% { transform: scale(0); }
+}
+
+@include keyframes(fade) {
+    0%   { transform: scale(1); @include opacity(1); top: 10px; }
+    90%  {                      @include opacity(0); top: 10px; }
+    99%  { transform: scale(0);             top: 150px; }
+    100% { transform: scale(0); }
+  }
+
+@include keyframes(contract) {
+    0%   { top: 10px; @include opacity(1);}
+    40%  { top: -25px; }
+    100% { top: 150px; @include opacity(0);}
+}
+
+@include keyframes(expand) {
+    0%   { top: 150px; @include opacity(0);}
+    50%  { top: -10px; }
+    70%  { top: 15px; }
+    100% { top: 10px; @include opacity(1);}
+}
+
+@include keyframes(swing) {
+    15%   { @include transform(translateX(5px)); }
+    30%   { @include transform(translateX(-5px)); }
+    50%   { @include transform(translateX(3px)); }
+    65%   { @include transform(translateX(-3px)); }
+    80%   { @include transform(translateX(2px)); }
+    100%  { @include transform(translateX(0px)); }
+}
+
+@for $i from 1 through $n {
+    @include keyframes(spin-#{$i}-expand) {
+        0%   { @include transform(rotate(0 - ($r * $i - 1))); }
+        100%   { @include transform(rotate(360deg - ($r * $i - 1))); }
+    }
+}
+
+@for $i from 1 through $n {
+    @include keyframes(spin-#{$i}-contract) {
+        0%   { @include transform(rotate(0 - ($r * $i - 1))); }
+        100%   { @include transform(rotate(360deg)); }
+    }
+}

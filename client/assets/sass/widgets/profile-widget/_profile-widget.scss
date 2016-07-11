@@ -1,0 +1,82 @@
+// _profile-widget.scss
+
+// load libs
+@import '../../libs/vars';
+@import '../../libs/functions';
+@import '../../libs/mixins';
+
+
+/* Profile Widget */
+
+.profile-widget {
+    position: relative;
+    max-width: 100%;
+    min-width: 27em;
+    padding: 4.5em 3em 1em 3em;   
+    
+    top: 100px;
+    width: 50%;
+    margin: 0 auto;
+    
+    background-color: _palette(glass);
+    border: _palette(border);
+    @include border-radius(4px);
+    cursor: default;
+
+    text-align: center;
+    @include prefix(transform-origin, 50% 50%);
+    @include transform(rotateX(0deg));
+    //@include transition(opacity 1s ease, -moz-transform 1s ease);  
+    
+    @include prefix('transition', (
+			'opacity #{_duration(main)} ease',
+			'transform #{_duration(main)} ease'
+    ));
+
+    .avatar {
+        position: relative;
+        margin: 0 auto;
+        margin-bottom: _size(element-margin);
+        
+        img {
+            display: block;
+            margin: 0 auto;
+            width: 160px;
+            @include border-radius(100%);
+            border: 2px solid _palette(border);
+        }
+    }
+    
+    &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 150px;
+        left: 0;
+        width: calc(100% + 0em);
+        height: _size(border-width);
+        z-index: -1;
+        background: _palette(border);
+    }
+    
+    @include breakpoint(xxsmall) {
+        min-width: 0;
+        width: 100%;
+        @include pad(4em, 2em);
+        
+
+        .avatar {
+            &:before {
+                left: -2em;
+                width: calc(100% + 4em);
+            }
+        }
+    }
+    
+
+    body.is-loading & {
+        opacity: 0;
+        @include prefix('transform', 'rotateX(15deg)');
+    }
+
+}

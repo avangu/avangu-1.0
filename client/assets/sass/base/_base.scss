@@ -1,0 +1,38 @@
+// _base.scss
+
+// load libs
+@import '../libs/vars';
+@import '../libs/functions';
+@import '../libs/mixins';
+
+
+/* Basic */
+
+// Ensures page width is always >=320px.
+@include breakpoint(xsmall) {
+    html, body {
+        min-width: 320px;
+    }
+}
+
+html {
+    height: 100%;
+    -webkit-tap-highlight-color: transparent;
+    overflow-y: scroll;
+}
+
+body {
+    height: 100%;
+    background-color: _palette(bg);
+    
+    @include prefix('background-image', (
+        'url("images/overlay.png")',
+        'linear-gradient(60deg, #{transparentize(_palette(accent1), 0.5)} 5%, #{transparentize(_palette(accent2), 0.65)})',
+        'url("../images/bg.jpg")'
+    ));
+    background-image: url("../../assets/images/11.jpg");
+    //background-repeat:		repeat,			no-repeat,			no-repeat;
+   // background-size:		100px 100px,	cover,				cover;
+    //background-position:	top left,		center center,		bottom center;
+    //background-attachment:	fixed,			fixed,				fixed;
+}
