@@ -1,11 +1,19 @@
-# Avangu
+# AVangu
 .: HTML5 audio/video player for angularJS :.
 
-# packaged Avangu
+# packaged AVangu
 
 This repo is for distribution on `npm` and `bower`. The source for this module is in the
-[main Avangu repo](https://github.com/avangu/avangu.git).
+[main AVangu repo](https://github.com/avangu/avangu.git).
 Please file issues and pull requests against that repo.
+
+
+### Demo Launch
+
+```shell
+node server/server.js
+```
+
 
 ## Install
 
