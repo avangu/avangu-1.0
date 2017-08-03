@@ -1,0 +1,123 @@
+// load libs
+@import '../libs/vars';
+@import '../libs/functions';
+@import '../libs/mixins';
+
+
+/* avangu controls plugin */
+
+avangu-controls {
+    
+    .controls-hud {
+        position: absolute;
+        display: block;
+
+        width: 300px;
+        height: 40px;
+
+        padding: 8px 140px 8px 15px;
+
+        left: 20px;
+        bottom: 20px;
+
+        z-index: 3;
+
+        color: #fff;
+
+        background-color: _palette(glass);
+        /* border: 1px solid _palette(glass-border); */
+        font-size: 0;
+        margin: 0 .25em 0 0;
+        vertical-align: baseline;
+
+        cursor: pointer;
+
+        zoom: 1;
+
+        &.hide {
+            //display: none;
+            opacity: 0;
+        }
+
+        &.show {
+            opacity: 1;
+            //display: block;
+        }
+
+        /************/
+        /* Buttons  */
+        /************/
+
+        button {
+            cursor: pointer;
+            display: inline-block;
+            min-height: 1em;
+            outline: 0;
+            border: none;
+            vertical-align: baseline;
+            background: transparent;
+            color: #fff;
+                
+            text-transform: none;
+            text-shadow: none;
+            font-weight: 700;
+            line-height: 1em;
+            font-style: normal;
+            text-align: center;
+            text-decoration: none;
+            font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+            border-radius:border-radius(0.2);
+            
+            font-size: 16px;
+            
+            @include prefix(user-select, none);
+            
+            -webkit-tap-highlight-color: transparent;
+                        
+            .icon {
+                display: inline-block;
+                opacity: 1;
+                margin: 0 .25rem 0 0;
+                width: 1.18em;
+                height: 1em;
+                font-family: Icons;
+                font-style: normal;
+                font-weight: 400;
+                text-decoration: inherit;
+                text-align: center;
+                speak: none;
+                font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+                -webkit-font-smoothing: antialiased;
+                -webkit-backface-visibility: hidden;
+                backface-visibility: hidden;
+
+                /* use !important to prevent issues with browser extensions that change fonts */
+                font-family: 'avangucons' !important;
+                speak: none;
+                font-style: normal;
+                font-weight: normal;
+                font-variant: normal;
+                text-transform: none;
+                line-height: 1;
+
+                /* Better Font Rendering =========== */
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+                
+                &.fullscreen:before {
+                    content: "\e903";
+                }
+                &.fullscreen-exit:before {
+                    content: "\e901";
+                }
+                &.play:before {
+                    content: "\e900";
+                }
+                &.pause:before {
+                    content: "\e902";
+                }
+            }
+        }
+    }
+}

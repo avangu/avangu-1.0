@@ -1,0 +1,1 @@
+var appRoot = angular.module('bullsfirst', []);

@@ -1,13 +1,25 @@
 {
   "name": "avangu",
   "version": "1.0.0",
+  "author": "stan nesi <stannesi@gmail.com>",
   "description": ".: HTML5 audio/video player for angularJS :.",
   "main": "gruntfile.js",
+  "keywords": [
+    "html5",
+    "video",
+    "player",
+    "video",
+    "audio",
+    "media",
+    "angular",
+    "angularjs",
+    "avangu",
+    "javascript"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
-  "author": "stan nesi",
   "license": "MIT",
   "dependencies": {
     "express": "^4.13.3",

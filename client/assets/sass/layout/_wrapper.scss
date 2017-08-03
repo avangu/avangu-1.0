@@ -1,0 +1,39 @@
+// ._wrapper.scss
+
+@import '../libs/vars';
+@import '../libs/functions';
+@import '../libs/mixins';
+
+
+/* Wrapper */
+
+#wrapper {
+    @include prefix(display, flex);
+    @include prefix(align-items, center);
+    @include prefix(justify-content, space-between);
+    @include prefix(flex-direction, column);
+    
+    @include prefix(perspective, 100px);
+    
+    position: relative;
+    min-height: 100%;
+    padding: _size(element-margin);
+    z-index: 2;
+
+    > * {
+        z-index: 1;
+    }
+
+    &:before {
+        content: '';
+        display: block;
+    }
+
+    @include breakpoint(xxsmall) {
+        padding: (_size(element-margin) * 0.5);
+    }
+
+    body.is-ie & {
+        height: 100%;
+    }
+}

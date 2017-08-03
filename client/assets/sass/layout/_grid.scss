@@ -1,0 +1,78 @@
+// _grid.scss
+
+@import '../libs/vars';
+@import '../libs/functions';
+@import '../libs/mixins';
+
+
+/* Grid */
+
+// grid variables
+$grid-columns: 12;
+$grid-max-width: 100%;
+
+*, *:after, *:before {
+    margin: 0;
+    padding: 0;
+    @include border-box;
+}
+     
+img {
+    width: auto;
+    max-width: 100%;
+    height: auto !important; 
+}   
+
+.wrapper {
+    position: relative;
+    width: 100%;
+    max-width: $grid-max-width;
+    margin: 0 auto;
+
+}
+ 
+.wrapper, .row {
+    @extend %clearfix;
+}
+      
+[class*='col-'] {
+    float: left;
+    /* padding: 1em; */
+    width: 100%;
+    min-height: 1px;
+    @include box-sizing(border-box);
+}
+
+@media #{$bp-medium} {
+    .wrapper {      
+        width: $grid-max-width;
+        max-width: $grid-max-width;     
+        }
+    @for $i from 1 through $grid-columns {      
+        .col-#{$i} {         
+            width: 100% / $grid-columns * $i;
+            margin-left: 0
+        }           
+    }
+    
+    @for $i from 1 through $grid-columns - 1 {      
+        .offset-left-by-#{$i} {         
+            margin-left: 100% / $grid-columns * $i;
+        }           
+    }  
+
+    @for $i from 1 through $grid-columns - 1 {      
+        .offset-right-by-#{$i} {         
+            margin-right: 100% / $grid-columns * $i;
+        }           
+    } 
+}
+
+
+.pull-right {
+    
+}
+
+.pull-left {
+    
+}

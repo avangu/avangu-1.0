@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<!-- saved from url=(0057)file:///Users/stannesi/Desktop/bullsfirst-2015/index.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+    <meta charset="UTF-8">
+    <title>Bullsfirst</title>
+
+    <link rel="stylesheet" href="./Bullsfirst_files/app.css">
+
+    <!-- Libs -->
+    <script src="./Bullsfirst_files/angular.js"></script>
+
+    <!-- Application -->
+    <script src="./Bullsfirst_files/app.js"></script>
+    <script src="./Bullsfirst_files/AccountsController.js"></script>
+</head>
+<body ng-app="bullsfirst" class="ng-scope">
+
+<!-- Header -->
+<div id="header">
+    <div class="logo">
+        <h1>bullsfirst</h1>
+
+        <div class="subtitle">Calling All Bull Markets</div>
+    </div>
+
+    <div class="actions">
+        <button>Trade</button>
+        <button>Transfer</button>
+    </div>
+</div>
+
+<!-- Content -->
+<div id="content" ng-controller="AccountsController" class="ng-scope">
+    <div class="left-section">
+        <div class="header">
+            <strong>Accounts</strong>
+
+            <div class="actions">
+                <button ng-click="addAccount()">Add Account</button>
+                <button>Refresh</button>
+            </div>
+        </div>
+
+        <table>
+            <tbody><tr>
+                <th>Name</th>
+                <th>Market Value</th>
+                <th>Cash</th>
+                <th>Legend</th>
+            </tr>
+
+            <!-- ngRepeat: row in rows --><tr ng-repeat="row in rows" class="ng-scope">
+                <td class="ng-binding">Brokerage Account 3</td>
+                <td class="ng-binding">$1,999,990.00</td>
+                <td class="ng-binding">$1,995,826.00</td>
+                <td>
+                    <div class="legend" style="background-color: orange"></div>
+                </td>
+            </tr><!-- end ngRepeat: row in rows --><tr ng-repeat="row in rows" class="ng-scope">
+                <td class="ng-binding">Account 3</td>
+                <td class="ng-binding">$1,949,990.00</td>
+                <td class="ng-binding">$1,695,856.00</td>
+                <td>
+                    <div class="legend" style="background-color: darkorange"></div>
+                </td>
+            </tr><!-- end ngRepeat: row in rows --><tr ng-repeat="row in rows" class="ng-scope">
+                <td class="ng-binding">Brokerage Account 1</td>
+                <td class="ng-binding">$1,349,990.00</td>
+                <td class="ng-binding">$1,595,866.00</td>
+                <td>
+                    <div class="legend" style="background-color: red"></div>
+                </td>
+            </tr><!-- end ngRepeat: row in rows --><tr ng-repeat="row in rows" class="ng-scope">
+                <td class="ng-binding">Brokerage Account 4</td>
+                <td class="ng-binding">$155,990.00</td>
+                <td class="ng-binding">$160,826.00</td>
+                <td>
+                    <div class="legend" style="background-color: blue"></div>
+                </td>
+            </tr><!-- end ngRepeat: row in rows --><tr ng-repeat="row in rows" class="ng-scope">
+                <td class="ng-binding">Brokerage Account 2</td>
+                <td class="ng-binding">$74,560.00</td>
+                <td class="ng-binding">$19,956.00</td>
+                <td>
+                    <div class="legend" style="background-color: gray"></div>
+                </td>
+            </tr><!-- end ngRepeat: row in rows --><tr ng-repeat="row in rows" class="ng-scope">
+                <td class="ng-binding">Account 4</td>
+                <td class="ng-binding">$55,006.00</td>
+                <td class="ng-binding">$53,006.00</td>
+                <td>
+                    <div class="legend" style="background-color: salmon"></div>
+                </td>
+            </tr><!-- end ngRepeat: row in rows --><tr ng-repeat="row in rows" class="ng-scope">
+                <td class="ng-binding">Account 13</td>
+                <td class="ng-binding">$37,340.00</td>
+                <td class="ng-binding">$0.00</td>
+                <td>
+                    <div class="legend" style="background-color: green"></div>
+                </td>
+            </tr><!-- end ngRepeat: row in rows --><tr ng-repeat="row in rows" class="ng-scope">
+                <td class="ng-binding">Joint Account 1</td>
+                <td class="ng-binding">$28,308.00</td>
+                <td class="ng-binding">$4,167.00</td>
+                <td>
+                    <div class="legend" style="background-color: darkblue"></div>
+                </td>
+            </tr><!-- end ngRepeat: row in rows --><tr ng-repeat="row in rows" class="ng-scope">
+                <td class="ng-binding">Joint Account 2</td>
+                <td class="ng-binding">$10,000.00</td>
+                <td class="ng-binding">$10,000.00</td>
+                <td>
+                    <div class="legend" style="background-color: teal"></div>
+                </td>
+            </tr><!-- end ngRepeat: row in rows -->
+
+            <tr class="totals">
+                <td></td>
+                <td>
+                    <strong class="ng-binding">$5,661,174.00</strong>
+                </td>
+                <td>
+                    <strong class="ng-binding">$5,535,503.00</strong>
+                </td>
+                <td></td>
+            </tr>
+
+
+        </tbody></table>
+    </div>
+
+    <div class="right-section">
+        <img class="chart" src="./Bullsfirst_files/chart.png" alt="Chart">
+
+        <div class="help-label">Click on an account to view positions</div>
+    </div>
+
+</div>
+
+
+</body></html>

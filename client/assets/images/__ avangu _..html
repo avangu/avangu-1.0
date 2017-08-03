@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<!-- saved from url=(0026)http://localhost:8000/app/ -->
+<html lang="en" ng-app="myApp" ng-hint="" class="ng-scope"><script src="chrome-extension://ighdmehidhipcmcojjgiloacoafjmpfk/dist/hint.js"></script><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+		<title>.: avangu :.</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="stan nesi">
+        <!--<base href="/">--><base href=".">
+        
+        <!-- CSS -->
+		<link rel="stylesheet" href="./__ avangu _._files/avangu.css">
+	<style type="text/css">.fancybox-margin{margin-right:0px;}</style><script type="text/javascript" src="chrome-extension://aadgmnobpdmgmigaicncghmmoeflnamj/ng-inspector.js"></script></head>
+    
+    <body data-pinterest-extension-installed="cr1.39.1">    
+        <!-- MAIN CONTENT -->
+        <section class="wrapper">
+            <!-- INJECT CONTENT -->
+            <div ng-view=""></div>
+        </section>
+
+
+        <section class="home">
+            <!-- AVANGU VIDOE PLAYER WIDGET -->  
+            <div>
+                <avangu source="[{
+                        &quot;src&quot;: &quot;app/assets/videos/demo-1.mp4&quot;,
+                        &quot;type&quot;: &quot;video/mp4&quot;
+                    }]" mute="true" autoplay="true" loop="true" native-controls="true" config-url="app/assets/config.json" class="ng-binding ng-isolate-scope">
+                    STATE: 
+                    <avangu-player type="video" class="ng-isolate-scope"><video src="app/assets/videos/demo-1.mp4" autoplay="" loop="" controls=""></video></avangu-player>
+                    <avangu-poster class="ng-isolate-scope"><img ng-src="app/assets/images/poster.png" ng-class="play" src="./__ avangu _._files/poster.png"></avangu-poster>
+                </avangu>
+            </div>
+
+                <!-- AVANGU AUDIO PLAYER WIDGET -->    
+            <!--
+            <avangu class="background"
+                source='[{
+                    "src": "app/assets/audios/song-1.mp3",
+                    "type": "audio/mp3"
+                }]'
+                mute="false"
+                autoplay="true"
+                loop="true" 
+                native-controls="true"
+                >
+                <avangu-player type="audio"></avangu-player>
+                <avangu-poster></avangu-poster>
+            </avangu>
+            <!-- PROFILE WIDGET -->
+
+        </section>
+        
+        
+        
+   <!-- SCRIPTS -->
+        <!-- LIBS -->
+            <!-- JQUERY -->
+            <!--
+                <script src="assets/libs/jquery/dist/jquery.min.js"></script>
+            -->
+
+            <!-- ANGULAR -->
+            <script src="./__ avangu _._files/angular.min.js"></script>
+            <script src="./__ avangu _._files/angular-route.min.js"></script>
+            <script src="./__ avangu _._files/angular-route.min.js"></script>
+        
+            <!-- AVANGU -->
+            <!--
+                <script src="libs/avangu/avangu.js"></script>
+            -->
+            
+                <script src="./__ avangu _._files/avangu.js"></script>
+                <script src="./__ avangu _._files/avangu.controller.js"></script>
+                <script src="./__ avangu _._files/avangu.directive.js"></script>
+                <script src="./__ avangu _._files/avangu-player.js"></script>
+
+            <!-- AVANGU-PLAYER -->     
+        <!--
+            <script src="../dist/avangu/js/avangu-player.min.js"></script>
+        -->
+            <!-- AVANGU-PLUGINS -->
+                <!-- AVANGU-POSTER -->
+                <!--
+                <script src="../dist/js/plugins/avangu-poster/avangu-poster.min.js"></script>
+        -->
+                <script src="./__ avangu _._files/avangu-poster.js"></script>
+
+            <!-- APP -->
+            <script src="./__ avangu _._files/app.js"></script>
+        
+	
+<span style="height: 20px; width: 40px; position: absolute; opacity: 1; z-index: 8675309; display: none; cursor: pointer; border: none; background-image: url(data:image/png;base64,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); background-color: transparent; background-size: 40px 20px;"></span></body></html>
