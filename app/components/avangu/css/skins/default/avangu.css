@@ -1,0 +1,242 @@
+/* variables */
+/* functions */
+/* @mixins */
+/* 
+* @include triangle within a pseudo element and add positioning properties (ie. top, left)
+* $direction: up, down, left, right
+*/
+@font-face {
+  font-family: 'avangucons';
+  src: url("../../fonts/avangucons.eot?inou6r");
+  src: url("../../fonts/avangucons.eot?inou6r#iefix") format("embedded-opentype"), url("../../fonts/avangucons.ttf?inou6r") format("truetype"), url("../../fonts/avangucons.woff?inou6r") format("woff"), url("../../fonts/avangucons.svg?inou6r#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+[class^="icon"], [class*=" icon"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'avangucons' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon.play:before {
+  content: "\e900";
+}
+.icon.pause:before {
+  content: "\e901";
+}
+
+avangu, [avangu] {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-color: #000;
+  margin: 0;
+  padding: 0;
+  display: block;
+  flex-direction: column;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  /* variables */
+  /* functions */
+  /* @mixins */
+  /* 
+  * @include triangle within a pseudo element and add positioning properties (ie. top, left)
+  * $direction: up, down, left, right
+  */
+  /* Avangu Player */
+  /* variables */
+  /* functions */
+  /* @mixins */
+  /* 
+  * @include triangle within a pseudo element and add positioning properties (ie. top, left)
+  * $direction: up, down, left, right
+  */
+  /* import registered plugings */
+  /* variables */
+  /* functions */
+  /* @mixins */
+  /* 
+  * @include triangle within a pseudo element and add positioning properties (ie. top, left)
+  * $direction: up, down, left, right
+  */
+  /* Avangu poster plugin */
+  /* variables */
+  /* functions */
+  /* @mixins */
+  /* 
+  * @include triangle within a pseudo element and add positioning properties (ie. top, left)
+  * $direction: up, down, left, right
+  */
+  /* avangu controls plugin */
+}
+avangu.background, [avangu].background {
+  position: absolute;
+  line-height: normal;
+  border-collapse: separate;
+  touch-action: none;
+  -ms-touch-action: none;
+  z-index: -100;
+}
+avangu.fullscreen, [avangu].fullscreen {
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+avangu button, [avangu] button {
+  cursor: pointer;
+}
+avangu avangu-player, [avangu] avangu-player {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  min-height: 100%;
+}
+avangu avangu-player video, [avangu] avangu-player video {
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  min-height: 100%;
+}
+avangu avangu-poster, [avangu] avangu-poster {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  z-index: 1;
+  top: 0;
+  pointer-events: none;
+}
+avangu avangu-poster img, [avangu] avangu-poster img {
+  position: absolute;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  /* 
+  background-color: _palette(bg);
+  background: url(../../app/assets/images/poster.png) no-repeat;
+  background-size: cover; 
+  */
+}
+avangu avangu-poster img.hide, [avangu] avangu-poster img.hide {
+  display: none;
+}
+avangu avangu-poster img.show, [avangu] avangu-poster img.show {
+  display: block;
+}
+avangu avangu-controls .controls-hud, [avangu] avangu-controls .controls-hud {
+  position: absolute;
+  display: block;
+  min-width: 350px;
+  padding: 8px;
+  left: 10px;
+  bottom: 20px;
+  z-index: 3;
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.3);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  border-radius: 3px;
+  font-size: 0;
+  margin: 0 .25em 0 0;
+  vertical-align: baseline;
+  cursor: pointer;
+  zoom: 1;
+  /************/
+  /* Buttons  */
+  /************/
+}
+avangu avangu-controls .controls-hud.hide, [avangu] avangu-controls .controls-hud.hide {
+  display: none;
+  opacity: 0;
+}
+avangu avangu-controls .controls-hud.show, [avangu] avangu-controls .controls-hud.show {
+  opacity: 1;
+  display: block;
+}
+avangu avangu-controls .controls-hud button, [avangu] avangu-controls .controls-hud button {
+  cursor: pointer;
+  display: inline-block;
+  min-height: 1em;
+  outline: 0;
+  border: none;
+  vertical-align: baseline;
+  background: transparent;
+  color: #fff;
+  text-transform: none;
+  text-shadow: none;
+  font-weight: 700;
+  line-height: 1em;
+  font-style: normal;
+  text-align: center;
+  text-decoration: none;
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  font-size: 20px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+avangu avangu-controls .controls-hud button .icon, [avangu] avangu-controls .controls-hud button .icon {
+  display: inline-block;
+  opacity: 1;
+  font-family: Icons;
+  font-style: normal;
+  font-weight: 400;
+  text-decoration: inherit;
+  text-align: center;
+  speak: none;
+  font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'avangucons' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+avangu avangu-controls .controls-hud button .icon.fullscreen:before, [avangu] avangu-controls .controls-hud button .icon.fullscreen:before {
+  content: "\e903";
+}
+avangu avangu-controls .controls-hud button .icon.fullscreen-exit:before, [avangu] avangu-controls .controls-hud button .icon.fullscreen-exit:before {
+  content: "\e901";
+}
+avangu avangu-controls .controls-hud button .icon.play:before, [avangu] avangu-controls .controls-hud button .icon.play:before {
+  content: "\e900";
+}
+avangu avangu-controls .controls-hud button .icon.pause:before, [avangu] avangu-controls .controls-hud button .icon.pause:before {
+  content: "\e902";
+}
+
+/*# sourceMappingURL=avangu.css.map */

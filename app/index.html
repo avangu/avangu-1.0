@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>stan nesi</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="author" content="stan nesi">
+        <base href="/">
+        
+        <!-- CSS -->
+		<link rel="stylesheet" href="components/avangu/css/skins/default/avangu.min.css" />
+	</head>
+    
+    <body ng-app="stannesiApp">
+        <!-- MAIN CONTENT -->
+        <section class="wrapper">
+            
+            <!-- AVANGU AUDIO PLAYER WIDGET -->  
+            <section class="home">
+                
+                <!-- AVANGU VIDOE PLAYER WIDGET -->    
+                <avangu class=""
+                    config-url="components/avangu/assets/config.json"
+                    >
+                    <avangu-player type="video"></avangu-player>
+                    <avangu-controls autohide="true">
+                        <avangu-button-play-pause></avangu-button-play-pause>
+                        <avangu-button-fullscreen></avangu-button-fullscreen>
+                    </avangu-controls>
+                    
+                    <avangu-poster></avangu-poster>
+                </avangu>
+
+                <!-- AVANGU AUDIO PLAYER WIDGET --> 
+           <!--
+                <avangu class="background"
+                    source='[{
+                        "src": "assets/audios/song-1.mp3",
+                        "type": "audio/mp3"
+                    }]'
+                    mute="false"
+                    autoplay="true"
+                    loop="true" 
+                    native-controls="true"
+                    >
+                    <avangu-player type="audio"></avangu-player>
+                    <avangu-poster ></avangu-poster>
+
+                </avangu>
+            -->
+            </section>
+            
+        </section>
+        
+   <!-- SCRIPTS -->
+        <!-- LIBS -->
+        <script src="assets/libs/jquery/dist/jquery.min.js"></script>
+        <script src="assets/libs/angular/angular.js"></script>
+        <script src="assets/libs/angular-ui-router/release/angular-ui-router.min.js"></script>
+        <script src="assets/libs/angular-route/angular-route.min.js"></script>
+        <script src="assets/libs/angular-animate/angular-animate.min.js"></script>
+
+        <!-- APP -->
+        <script src="app.js"></script>
+        
+        <!-- app router -->
+        <script src="app.router.js"></script>
+
+                
+        <!-- components -->
+            <!-- Avangu Player -->
+            <script src="components/avangu/js/avangu.js"></script>
+                
+            <!-- Avangu Player Plugin-->
+                
+           <!--  avangu player controls plugin -->     
+            <script src="components/avangu/js/plugins/avangu-controls.js"></script>
+
+            <!--  avangu player poster plugin -->   
+            <script src="components/avangu/js/plugins/avangu-poster.js"></script>
+       
+	</body>
+</html>
